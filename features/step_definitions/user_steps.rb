@@ -17,7 +17,6 @@ When(/^I summit my information$/) do
 end
 
 Then(/^my User account is created$/) do
-  debugger
   expect(User.first.email).to eq 'manolito@gafotas.com'
 end
 

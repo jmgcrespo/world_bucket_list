@@ -5,6 +5,9 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
    root 'pages#main'
+   resources :users, only: [:show] do
+    resource :destinations,  shallow: true
+   end
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
