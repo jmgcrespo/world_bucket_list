@@ -4,8 +4,8 @@ Feature: User can register
   So that I can assign my Bucket List entries
 
 
-Scenario:  User registers with email and password
-  Given I am a signed in
+Scenario:  User creates uniquely named destinations
+  Given I am a registered and signed in user
   When I am in new destination page
   And I complete destination field
   And I click in create destination button

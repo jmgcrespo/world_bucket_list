@@ -21,5 +21,35 @@ Then(/^my User account is created$/) do
 end
 
 Then(/^I am directed to my profile$/) do
-  pending # express the regexp above with the code you wish you had
+  expect(page.current_path).to match /users/
+end
+
+
+Given(/^I am a registered and sigend in user$/) do
+  email = 'manolito@gafotas.com'
+  password = '12345678'
+  @test_user = User.create!(:email => email, :password => password)
+
+  visit '/users/sign_in'
+  fill_in 'Email', with: email
+  fill_in 'Password', with: password
+  click_button 'Log in'
+end
+
+
+When(/^I am at new destination page$/) do
+  visit new_user_destinations_path(@test_user)
+end
+
+When(/^I fill and submit destination´s required information$/) do
+  fill_in 'Name', with: 'Kuala Lumpur'
+  click_button 'Create Destination'
+end
+
+Then(/^a new Destination is created$/) do
+  expect(@test_user.destinations.count).to be 1
+end
+
+Then(/^I can create a new destination$/) do
+  expect(page.body).to  have_field 'Name'
 end
