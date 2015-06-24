@@ -1,1 +1,10 @@
-<%= link_to 'Add a destination', new_user_destinations_path(current_user) %>
+<h1> Your Bucket List</h1>
+<ul>
+<% current_user.destinations.each do |destination| %>
+<li> <h3><%= link_to destination.name, destination %></h3>
+  <%= image_tag(destination_static_map(destination),alt: destination.name) %>
+ <%= link_to 'Delete', destination, method: :delete %> 
+</li>
+<% end %>
+<li> <%= link_to 'Add a destination', new_user_destination_path(current_user) %> </li>
+</ul>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150623142806) do
+ActiveRecord::Schema.define(version: 20150624160831) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,18 @@ ActiveRecord::Schema.define(version: 20150623142806) do
   end
 
   add_index "destinations", ["user_id"], name: "index_destinations_on_user_id", using: :btree
+
+  create_table "todos", force: :cascade do |t|
+    t.string   "name"
+    t.string   "location"
+    t.float    "longitude"
+    t.float    "latitude"
+    t.integer  "destination_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "todos", ["destination_id"], name: "index_todos_on_destination_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -45,4 +57,5 @@ ActiveRecord::Schema.define(version: 20150623142806) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   add_foreign_key "destinations", "users"
+  add_foreign_key "todos", "destinations"
 end

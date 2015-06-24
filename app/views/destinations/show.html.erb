@@ -1,0 +1,12 @@
+<h1> <%= @destination.name %> </h1>
+<h2> ToDos </h2>
+<ul>
+  <% @destination.todos.each do |todo| %>
+    <li>
+      <h3><%= todo.name %></h3>
+      <span> <%= todo.location %> </span>
+      <span> <%= link_to 'Del', todo, method: :delete %> </span> 
+    </li>
+  <% end %>
+  <li> <%= link_to 'Add a ToDo', new_destination_todo_path(@destination) %> </li>
+</ul>

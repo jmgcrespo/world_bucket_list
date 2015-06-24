@@ -4,10 +4,20 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-   root 'pages#main'
-   resources :users, only: [:show] do
-    resource :destinations,  shallow: true
-   end
+  authenticated :user do
+    root 'users#show', as: 'profile'
+  end
+
+  root 'pages#main'
+  resources :users, only: [:show] do
+    resources :destinations, shallow: true
+  end
+
+  resources :destinations, only: [] do
+    resources :todos, shallow: true
+  end
+
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

@@ -4,8 +4,6 @@ Feature: A User can view their Bucket List
   So that I can organise my life
 
   Scenario: A User sees their beucket list
-    Given I am a registered and sigend in user
-    When I am at new destination page
-    And I fill and submit destination´s required information
-    Then a new Destination is created
-    And I can create a new destination
+    Given I am a registered and signed in user
+    When I am at my profile page
+    Then I can see my Bucket List
