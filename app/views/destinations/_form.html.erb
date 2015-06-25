@@ -1,0 +1,10 @@
+<div class="row">
+  <%= form_for [current_user,@destination], remote: true do |f| %>
+      <div class="col col-4 dest">
+        <%= f.label :name %>
+         <%= f.text_field :name%>
+         <%= f.submit, class: "dest_butt" %>
+      </div>
+  <%end%>
+</div>
+

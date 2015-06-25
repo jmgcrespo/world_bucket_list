@@ -7,16 +7,33 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<ul>
-  <li> <%= link_to 'WBS', :root %> </li>
-    <% if user_signed_in? %>
-      <li> <%= link_to 'Logout', destroy_user_session_path, method: :delete  %> </li>
-    <%else%>
-      <li> <%= link_to 'Login', new_user_session_path %> </li>
-      <li> <%= link_to 'Register', new_user_registration_path %> </li>
-    <% end %>
-</ul>
-<%= yield %>
+  <div class="fluid-container">
+  <div class="row nav-bar">
+    <div class="col col-2">
+      <%= link_to 'WBS', :root, class: "nav_logo_link" %>
+    </div>
+    <div class="col col-6">
+      <ul class="nav-menu-ul">
+          <% if user_signed_in? %>
+            <li class="nav-menu-li">
+              <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: "nav-menu-link" %>
+            </li>
+          <%else%>
+            <li class="nav-menu-li">
+              <%= link_to 'Login', new_user_session_path, class: "nav-menu-link"%>
+            </li>
+            <li class="nav-menu-li">
+              <%= link_to 'Register', new_user_registration_path, class: "nav-menu-link" %>
+            </li>
+          <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="fluid-container content">
+
+  <%= yield %>
+</div>
 
 </body>
 </html>

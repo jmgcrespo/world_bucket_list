@@ -1,6 +1,10 @@
 class DestinationsController < ApplicationController
   def new
     @destination = current_user.destinations.new
+    respond_to do |format|
+      format.html
+      format.js 
+    end
   end
 
   def create
@@ -20,7 +24,7 @@ class DestinationsController < ApplicationController
   end
 
   def destroy
-    Destination.delete(params[:id])
+    Destination.destroy(params[:id])
     redirect_to :root
   end
 

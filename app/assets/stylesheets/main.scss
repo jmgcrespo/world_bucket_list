@@ -1,0 +1,87 @@
+@import 'partials/grid';
+
+.fluid-container {
+  margin: auto;
+}
+
+.row {
+}
+
+.col {
+  padding: 5px;
+}
+$basic-color: #7373ff;
+$sec-color: rgb(238, 238, 240);
+
+.nav {
+  color: white;
+}
+
+.nav-bar {
+  background-color: $basic-color;
+  color: white;
+  border-radius: 5px;
+  position: fixed;
+  width: inherit;
+}
+
+a {
+  text-decoration: none;
+}
+
+.nav_logo_link {
+font-size: 3em;
+color: white;
+}
+
+.nav-menu-ul {
+  color:white;
+  list-style-type:none;
+  
+  float:right;
+}
+
+.nav-menu-li {
+  display:inline-block;
+  padding-right:12px;
+}
+
+.nav-menu-link {
+  color: white;
+}
+
+.content {
+  padding-top:85px;
+}
+
+
+.wbl-menu {
+padding-top:16px;
+}
+
+.wbl-link {
+  display: inline-block;
+  background-color: $basic-color;
+  padding: 12px;
+  border-radius: 3px;
+  color: white;
+  float:right
+}
+
+.dest-head {
+
+  margin: 0px
+}
+
+.dest {
+  margin-top: 15px;
+  background-color: $sec-color;
+  box-shadow: 10px 10px 5px #888888;
+  border-radius: 5px;
+  padding: 10px ;
+}
+
+.wbl-link-small {
+  @extend .wbl-link;
+  padding: 6px;
+}
