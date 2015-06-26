@@ -1,12 +1,24 @@
-<h1> <%= @destination.name %> </h1>
-<h2> ToDos </h2>
-<ul>
-  <% @destination.todos.each do |todo| %>
-    <li>
-      <h3><%= todo.name %></h3>
-      <span> <%= todo.location %> </span>
-      <span> <%= link_to 'Del', todo, method: :delete %> </span> 
-    </li>
-  <% end %>
-  <li> <%= link_to 'Add a ToDo', new_destination_todo_path(@destination) %> </li>
-</ul>
+<div  class="row">
+  <div class="col col-4">
+    <h1> <%= @destination.name %> </h1>
+  </div>
+  <div id="todo_form" class="col col-3">
+  </div>
+  <div class="col col-1">
+    <%= link_to 'Add a ToDo', new_destination_todo_path(@destination),
+      class: "wbl-link",
+      remote: true
+    %>
+  </div>
+</div>
+<div   class="row map">
+  <div id="map-canvas" class="col col-8">
+  </div>
+</div>
+<div class="row todos">
+  <%= render 'todos', todos: @destination.todos.all %>
+</div>
+
+
+
+

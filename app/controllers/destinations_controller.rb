@@ -8,14 +8,16 @@ class DestinationsController < ApplicationController
   end
 
   def create
-
     @destination = current_user.destinations.new(destination_params)
 
-    if @destination.save
-      @destination = Destination.new
-      redirect_to :root
-    else
-      render :new
+    respond_to do |format|
+      if (@destination.save)
+        format.html { redirect_to :root}
+        format.js
+      else
+        format.html { render 'new'}
+        format.js { render 'new'}
+      end
     end
   end
 
@@ -26,6 +28,14 @@ class DestinationsController < ApplicationController
   def destroy
     Destination.destroy(params[:id])
     redirect_to :root
+  end
+
+  def geo_data
+    @destination = Destination.find(params[:id])
+
+    respond_to do |format|
+      format.js  { render json: @destination.geo_data }
+    end
   end
 
   private

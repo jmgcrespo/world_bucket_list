@@ -15,8 +15,10 @@ Rails.application.routes.draw do
 
   resources :destinations, only: [] do
     resources :todos, shallow: true
+    member do
+      get 'geo_data'
+    end
   end
-
 
 
   # Example of regular route:
