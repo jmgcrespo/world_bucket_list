@@ -1,7 +1,6 @@
+  <%= div_for todo, class: "col col-2 dest" do %>
 
-  <div class="col col-2 dest">
     <h4 class="todo_name"> <%= todo.name %> </h4>
-    <%= link_to 'Del', todo, method: :delete, class: "wbl-link-small" %>
+    <%= link_to 'Del', todo, method: :delete, class: "wbl-link-small", remote: true %>
     <p class="todo_location"> at <%= todo.location %></p>
-  </div>
-  
+<% end %>
