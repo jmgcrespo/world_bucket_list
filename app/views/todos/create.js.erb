@@ -1,2 +1,3 @@
 $("#todos").append(" <%= j(render @todo) %>");
-$("#todo_form").html("");
+addMarker(<%= "#{@todo.latitude}, #{@todo.longitude}"%>,"<%=@todo.name%>");
+$("section#todo_form").html("");

@@ -31,8 +31,9 @@
   }
 
   function loadMarkers() {
+
     $.ajax({
-      url: window.location.pathname + '/todos',
+      url: uri =  window.location.pathname + '/todos',
       dataType: 'json',
       success: function(json) {
         console.log(json);
