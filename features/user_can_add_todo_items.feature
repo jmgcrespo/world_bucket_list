@@ -3,7 +3,7 @@ Feature: A User can add ToDo items to a destination
   I want to add ToDo entries
   So I can organise my  trip
   @javascript
-  Scenario:
+  Scenario: User adds a todo item to a destination
     Given I am a registered and signed in user
     And I have created already some destinatinos
     When I am in my Bucket List

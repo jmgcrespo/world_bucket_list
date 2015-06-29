@@ -7,8 +7,6 @@
       url: window.location.pathname + '/geo_data',
       dataType: 'json',
       success: function(geo_data) {
-        console.log("Hola");
-        console.log(geo_data);
 
         destcenter = geo_data.geometry.location;
         bounds = geo_data.geometry.bounds;
@@ -33,10 +31,9 @@
   function loadMarkers() {
 
     $.ajax({
-      url: uri =  window.location.pathname + '/todos',
+      url: window.location.pathname + '/todos',
       dataType: 'json',
       success: function(json) {
-        console.log(json);
 
         if ( json.length > 0 ) {
           var bounds = default_bounds;

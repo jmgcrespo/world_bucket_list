@@ -23,16 +23,16 @@ class DestinationsController < ApplicationController
   end
 
   def show
-    @destination = Destination.find(params[:id])
+    @destination = current_user.destinations.find(params[:id])
   end
 
   def destroy
-    Destination.destroy(params[:id])
+    current_user.destinations.destroy(params[:id])
     redirect_to :root
   end
 
   def geo_data
-    @destination = Destination.find(params[:id])
+    @destination = current_user.destinations.find(params[:id])
 
     respond_to do |format|
       format.js  { render json: @destination.geo_data }

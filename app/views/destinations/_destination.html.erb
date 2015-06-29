@@ -1,25 +1,21 @@
 <%= div_for destination, class: "row dest" do %>
+  <div class="row">
+    <div class="col col-4">
+      <h2 class="dest-head"> <%= destination.name %> </h2>
+    </div>
+    <div class="col col-4">
+       <%= link_to 'Delete', destination, method: :delete, class: 'wbl-link-small' %>
+       <%= link_to 'Show', destination, class: 'wbl-link-small t_show_dest' %>
+    </div>
 
-<div class="row">
-  <div class="col col-4">
-    <h2 class="dest-head"> <%= destination.name %> </h2>
   </div>
-  <div class="col col-4">
-     <%= link_to 'Delete', destination, method: :delete, class: 'wbl-link-small' %>
-     <%= link_to 'Show', destination, class: 'wbl-link-small t_show_dest' %>
+
+  <div clas="row">
+    <div class="col col-4 gmap">
+      <%= image_tag(destination_static_map(destination),alt: destination.name) %>
+    </div>
+    <div class="col col-4 todos">
+      <%render 'destinations/todos', todos: destination.todos.all %>
+    </div>
   </div>
-
-</div>
-
-<div clas="row">
-  <div class="col col-4 gmap">
-    <%= image_tag(destination_static_map(destination),alt: destination.name) %>
-  </div>
-  <div class="col col-4 todos">
-    <%render 'destinations/todos', todos: destination.todos.all %>
-  </div>
-</div>
-
-
-
 <% end %>

@@ -1,6 +1,6 @@
 class TodosController < ApplicationController
   def new
-    @destination = Destination.find(params[:destination_id])
+    @destination = current_user.destinations.find(params[:destination_id])
     @todo = @destination.todos.new
 
     respond_to do |format|
@@ -10,7 +10,7 @@ class TodosController < ApplicationController
   end
 
   def create
-    @destination = Destination.find(params[:destination_id])
+    @destination = current_user.destinations.find(params[:destination_id])
     @todo = @destination.todos.new(todo_params)
 
     respond_to do |format|
@@ -25,7 +25,7 @@ class TodosController < ApplicationController
   end
 
   def destroy
-    @todo = Todo.find(params[:id])
+    @todo = current_user.todos.find(params[:id])
     @todo.destroy
 
     respond_to do |format|
@@ -35,7 +35,7 @@ class TodosController < ApplicationController
   end
 
   def index
-    @destination = Destination.find(params[:destination_id])
+    @destination = current_user.destinations.find(params[:destination_id])
     @todos = @destination.todos.all
 
     respond_to do |format|
