@@ -1,9 +1,10 @@
 class DestinationsController < ApplicationController
   def new
     @destination = current_user.destinations.new
+
     respond_to do |format|
       format.html
-      format.js 
+      format.js
     end
   end
 
@@ -11,12 +12,12 @@ class DestinationsController < ApplicationController
     @destination = current_user.destinations.new(destination_params)
 
     respond_to do |format|
-      if (@destination.save)
-        format.html { redirect_to :root}
+      if @destination.save
+        format.html { redirect_to :root }
         format.js
       else
-        format.html { render 'new'}
-        format.js { render 'new'}
+        format.html { render 'new' }
+        format.js { render 'new' }
       end
     end
   end
@@ -43,5 +44,4 @@ class DestinationsController < ApplicationController
   def destination_params
     params.require(:destination).permit(:name)
   end
-
 end

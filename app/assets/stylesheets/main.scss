@@ -1,25 +1,26 @@
 @import 'partials/grid';
+$basic-color: #F7BD63;
+$sec-color: rgb(238, 238, 240);
+
+body {
+font-family:  Impact, Charcoal, sans-serif;
+}
 
 .fluid-container {
   margin: auto;
 }
 
-.row {
-}
-
 .col {
   padding: 5px;
 }
-$basic-color: #7373ff;
-$sec-color: rgb(238, 238, 240);
 
 .nav {
-  color: white;
+  color: #f0f0f0;
 }
 
 .nav-bar {
   background-color: $basic-color;
-  color: white;
+  color: #f0f0f0;
   border-radius: 5px;
   position: fixed;
   width: inherit;
@@ -30,14 +31,13 @@ a {
 }
 
 .nav_logo_link {
-font-size: 3em;
-color: white;
+  font-size: 3em;
+  color: #f0f0f0;
 }
 
 .nav-menu-ul {
   color:white;
   list-style-type:none;
-  
   float:right;
 }
 
@@ -54,9 +54,8 @@ color: white;
   padding-top:85px;
 }
 
-
 .wbl-menu {
-padding-top:16px;
+  padding-top:16px;
 }
 
 .wbl-link {
@@ -69,7 +68,6 @@ padding-top:16px;
 }
 
 .dest-head {
-
   margin: 0px
 }
 
@@ -89,8 +87,8 @@ padding-top:16px;
 
 #map-canvas {
   height: 400px
-
 }
+
 .todo_form {
   @extend .dest;
   margin: 0px;

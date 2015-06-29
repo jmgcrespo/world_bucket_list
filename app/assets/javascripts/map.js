@@ -7,7 +7,7 @@
       url: window.location.pathname + '/geo_data',
       dataType: 'json',
       success: function(geo_data) {
-
+        console.log("Hola");
         console.log(geo_data);
 
         destcenter = geo_data.geometry.location;
@@ -52,20 +52,18 @@
     });
   }
 
-    function addMarker(lat, lng, title) {
-      var marker = new google.maps.Marker({
-        position: new google.maps.LatLng(lat, lng),
-        map: map,
-        title: title
-      });
-    }
+  function addMarker(lat, lng, title) {
+    var marker = new google.maps.Marker({
+      position: new google.maps.LatLng(lat, lng),
+      map: map,
+      title: title
+    });
+  }
 
-    function zoomToMarker(lat, lng, title) {
-      var bounds = new google.maps.LatLngBounds();
-      addMarker(lat, lng, title);
-      bounds.extend(new google.maps.LatLng(lat, lng));
-      map.fitBounds(bounds);
-    }
+  function zoomToMarker(lat, lng, title) {
+    var bounds = new google.maps.LatLngBounds();
+    addMarker(lat, lng, title);
+    bounds.extend(new google.maps.LatLng(lat, lng));
+    map.fitBounds(bounds);
+  }
 
-
-  $(window).load(initialize());

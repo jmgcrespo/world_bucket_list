@@ -3,6 +3,7 @@ class Todo < ActiveRecord::Base
   geocoded_by :full_location
   after_validation :geocode
   validates :name, uniqueness: true
+
   def full_location
     [self.location, self.destination.name].join(',')
   end

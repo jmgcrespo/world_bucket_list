@@ -2,6 +2,7 @@ class TodosController < ApplicationController
   def new
     @destination = Destination.find(params[:destination_id])
     @todo = @destination.todos.new
+
     respond_to do |format|
       format.html
       format.js
@@ -26,8 +27,9 @@ class TodosController < ApplicationController
   def destroy
     @todo = Todo.find(params[:id])
     @todo.destroy
+
     respond_to do |format|
-      format.html { redirect_to @todo.destination}
+      format.html { redirect_to @todo.destination }
       format.js
     end
   end
@@ -41,6 +43,7 @@ class TodosController < ApplicationController
       format.js { render json: @todos }
     end
   end
+
   private
 
   def todo_params

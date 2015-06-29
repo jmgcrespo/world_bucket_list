@@ -1,5 +1,8 @@
  <div class="col col-8 todo_form">
-  <%= form_for [@destination,@todo], remote: true do |f| %>
+  <%= form_for [@destination,@todo],
+    remote: true,
+    authenticity_token: true do |f|
+  %>
     <div>
       <%= f.label :name %>
       <%= f.text_field :name %>
@@ -8,7 +11,7 @@
       <%= f.label :location %>
       <%= f.text_field :location %>
     </div>
-      <%= f.submit class: "wbl-link-small" %>
+    <%= f.submit class: "wbl-link-small" %>
   <%end %>
 </div>
 

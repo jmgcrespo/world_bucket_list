@@ -14,13 +14,4 @@ class Destination < ActiveRecord::Base
       errors.add(:name, "can´t find this destination")
     end
   end
-
-  def LatLng
-    self.geo_data["geometry"]["location"].values.join(',')
-  end
-
-  def LatLngBounds(point)
-    self.geo_data["geometry"]["bounds"][point].values.join(',')
-  end
-
 end

@@ -37,8 +37,12 @@ Given(/^I am a registered and signed in user$/) do
 end
 
 
-When(/^I am in new destination page$/) do
-  visit new_user_destination_path(@test_user)
+When(/^I am in my profile$/) do
+  visit user_path(@test_user)
+end
+
+When(/^I add a new destination$/) do
+  click_link('Add a destination')
 end
 
 When(/^I fill and submit destination´s required information$/) do
@@ -47,7 +51,7 @@ When(/^I fill and submit destination´s required information$/) do
 end
 
 Then(/^a new Destination is created$/) do
-  expect(@test_user.destinations.count).to be 1
+  expect(find('.dest-head')).to have_content('Kuala Lumpur')
 end
 
 Then(/^I can create a new destination$/) do
@@ -56,7 +60,7 @@ end
 
 Given(/^I have created already some destinatinos$/) do
   @test_user.destinations.create!(name: 'Kuala Lumpur')
-  @test_user.destinations.create!(name: 'Albacete')
+  @albacete = @test_user.destinations.create!(name: 'Albacete')
 end
 
 When(/^I am in my Bucket List$/) do
@@ -64,7 +68,8 @@ When(/^I am in my Bucket List$/) do
 end
 
 When(/^I click on a destination$/) do
-  click_link 'Albacete'
+  find("\##{dom_id(@albacete)}").find(".t_show_dest").click
+
 end
 
 When(/^I click on add ToDo$/) do
@@ -78,7 +83,7 @@ When(/^I fill in name and location$/) do
 end
 
 Then(/^a new ToDo item is created$/) do
-  expect(page.body).to have_content('Have a beer')
+  expect(page).to have_content('Have a beer')
 end
 
 When(/^I am at my profile page$/) do

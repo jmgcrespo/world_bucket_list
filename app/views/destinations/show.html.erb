@@ -2,8 +2,7 @@
   <div class="col col-4">
     <h1> <%= @destination.name %> </h1>
   </div>
-  <section id="todo_form" class="col col-3">
-  </section>
+  <section id="todo_form" class="col col-3"> </section>
   <div class="col col-1">
     <%= link_to 'Add a ToDo', new_destination_todo_path(@destination),
       class: "wbl-link",
@@ -12,12 +11,13 @@
   </div>
 </div>
 <div   class="row map">
-  <div id="map-canvas" class="col col-8">
-  </div>
+  <div id="map-canvas" class="col col-8"></div>
 </div>
 <div class="row todos">
   <%= render 'todos', todos: @destination.todos.all %>
 </div>
+
+<script>  $(document).ready(initialize()); </script>
 
 
 
